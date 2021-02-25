@@ -6,7 +6,8 @@
 * *Newman* is the commandline collection runner for Postman which facilitates execution via CICD
 
 Postman supports REST, SOAP, or plain HTTP. One can download Postman from here : https://www.postman.com/downloads/
-In Postman, one can create individual requests and add them to a *Collection*. Inorder to run a *Collection* from commandline, we need **Newman**
+
+In Postman, one can create individual requests and add them to a *Collection*. Inorder to run a *Collection* from commandline, we need **Newman**.
 
 ### To download and install Newman , run this command on the terminal :
 ```shell
