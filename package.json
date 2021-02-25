@@ -1,0 +1,14 @@
+{
+  "name": "postman",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx newman run UserCollection.json -e TestEnv.json -d UserData.csv --reporters cli,junit --reporter-junit-export Results/junitReport.xml"
+  },
+  "author": "Ashish",
+  "license": "ISC",
+  "devDependencies": {
+    "newman": "^5.2.2"
+  }
+}

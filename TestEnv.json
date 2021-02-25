@@ -1,0 +1,34 @@
+{
+	"id": "b7f8ae3e-4180-411d-b2be-c88d7c9b5aa7",
+	"name": "TestEnv",
+	"values": [
+		{
+			"key": "UserID",
+			"value": null,
+			"enabled": true
+		},
+		{
+			"key": "FirstName",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "LastName",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "Email",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "UpdatedEmail",
+			"value": "",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2021-02-25T01:36:33.882Z",
+	"_postman_exported_using": "Postman/7.36.5"
+}

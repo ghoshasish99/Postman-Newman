@@ -1,0 +1,172 @@
+{
+	"info": {
+		"_postman_id": "e9c2025c-25c5-4cdd-93a5-74406cb52405",
+		"name": "JsonServer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"postman.setEnvironmentVariable(\"UserID\", jsonData.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"first_name\": \"{{FirstName}}\",\r\n    \"last_name\": \"{{LastName}}\",\r\n    \"email\": \"{{Email}}\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://json-server-1.azurewebsites.net/users",
+					"protocol": "http",
+					"host": [
+						"json-server-1",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Fetch Employee Details\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.first_name).to.eql(data.FirstName);\r",
+							"    pm.expect(jsonData.last_name).to.eql(data.LastName);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://json-server-1.azurewebsites.net/users/{{UserID}}",
+					"protocol": "http",
+					"host": [
+						"json-server-1",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"users",
+						"{{UserID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Assert Update User Details\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.email).to.eql(data.UpdatedEmail);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"first_name\": \"{{FirstName}}\",\r\n    \"last_name\": \"{{LastName}}\",\r\n    \"email\": \"{{UpdatedEmail}}\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://json-server-1.azurewebsites.net/users/{{UserID}}",
+					"protocol": "http",
+					"host": [
+						"json-server-1",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"users",
+						"{{UserID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://json-server-1.azurewebsites.net/users/{{UserID}}",
+					"protocol": "http",
+					"host": [
+						"json-server-1",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"users",
+						"{{UserID}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
